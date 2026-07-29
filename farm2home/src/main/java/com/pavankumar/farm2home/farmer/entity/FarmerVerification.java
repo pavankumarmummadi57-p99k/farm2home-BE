@@ -1,10 +1,7 @@
 package com.pavankumar.farm2home.farmer.entity;
 
-import java.time.LocalDateTime;
-
 import com.pavankumar.farm2home.common.entity.BaseEntity;
-import com.pavankumar.farm2home.farmer.enums.GovernmentIdType;
-import com.pavankumar.farm2home.user.enums.VerificationStatus;
+import com.pavankumar.farm2home.farmer.enums.VerificationStatus;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -29,26 +26,20 @@ public class FarmerVerification extends BaseEntity {
     @JoinColumn(name = "farmer_profile_id", nullable = false, unique = true)
     private FarmerProfile farmerProfile;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "government_id_type", nullable = false)
-    private GovernmentIdType governmentIdType;
-
-    @Column(name = "government_id_number", nullable = false, length = 30)
-    private String governmentIdNumber;
-
-    @Column(name = "government_id_image_path", nullable = false)
-    private String governmentIdImagePath;
-
-    @Column(name = "farm_photo_path", nullable = false)
+    @Column(name = "farm_photo_path")
     private String farmPhotoPath;
 
+    @Column(name = "government_id_front_path")
+    private String governmentIdFrontPath;
+
+    @Column(name = "government_id_back_path")
+    private String governmentIdBackPath;
+
     @Enumerated(EnumType.STRING)
-    @Column(name = "verification_status", nullable = false)
+    @Column(nullable = false)
     private VerificationStatus verificationStatus;
 
-    @Column(name = "admin_remarks", length = 500)
-    private String adminRemarks;
+    @Column(length = 500)
+    private String remarks;
 
-    @Column(name = "verified_date")
-    private LocalDateTime verifiedDate;
 }

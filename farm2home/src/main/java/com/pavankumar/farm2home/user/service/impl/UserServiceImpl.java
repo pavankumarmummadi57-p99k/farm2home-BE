@@ -58,7 +58,7 @@ public class UserServiceImpl implements UserService {
 
         // Default Values
         user.setRole(Role.CUSTOMER);
-        user.setAccountStatus(AccountStatus.PENDING_VERIFICATION);
+        user.setAccountStatus(AccountStatus.ACTIVE);
 
         // Save User
         userRepository.save(user);
